@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   resources :topics do
     resources :answers
   end
+    resources :answers, only:[ :edit, :update, :show, :destroy ]
+
 end

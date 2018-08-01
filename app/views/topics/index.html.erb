@@ -3,6 +3,7 @@
 <ul>
   <li>
 <%= topic %>
+<%= link_to "Show", topic_path(topic) %>
 <%= link_to "Edit", edit_topic_path(topic) %>
  <%= link_to topic_path(topic),
   method: :delete,

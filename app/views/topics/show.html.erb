@@ -1,1 +1,29 @@
 <h1>show topic</h1>
+<p> <%= @topic.description %>  by <%= @topic.user.email %></p>
+<br>
+<p>Réponse</p>
+<ul>
+ <% @topic.answers.each do |answer| %>
+ <li>
+   <p><%= answer.description %> by <%= answer.user.email %>
+    <%= link_to "Edit", edit_answer_path(answer) %>
+    <%= link_to answer_path(answer),
+  method: :delete,
+  data: { confirm: "Are you sure?" } do %>
+  Delete
+<% end %>
+
+   </p>
+ </li>
+ <% end %>
+</ul>
+
+
+<br>
+
+<h2>add a commentaire</h2>
+<%= simple_form_for [@topic, @answer] do |f| %>
+<%= f.input :description %>
+<%= f.submit "add", class: "btn btn-primary" %>
+<% end %>
+
