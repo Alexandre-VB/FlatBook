@@ -1,0 +1,23 @@
+.session-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: calc(100vh - 170px);
+}
+
+.session-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.card-session {
+  background-color: white;
+  box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  padding: 40px 50px 40px 50px;
+  margin: 30px;
+  }

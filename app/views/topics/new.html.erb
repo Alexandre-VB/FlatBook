@@ -1,6 +1,12 @@
-  <%= simple_form_for @topic do |f| %>
-    <%= f.input :text %>
-    <%= f.input :description %>
-    <%= f.input :typologie %>
-    <%= f.button :submit %>
-<% end %>
+<div class="topics-new-container">
+  <div class="topics-new-content">
+    <div class="topics-new-card">
+      <%= simple_form_for @topic do |f| %>
+        <%= f.input :text %>
+        <%= f.input :description %>
+        <%= f.input :typologie %>
+        <%= f.button :submit, class: "submit" %>
+      <% end %>
+    </div>
+  </div>
+</div>

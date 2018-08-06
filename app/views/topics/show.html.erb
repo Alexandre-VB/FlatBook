@@ -1,29 +1,44 @@
-<h1>show topic</h1>
-<p> <%= @topic.description %>  by <%= @topic.user.email %></p>
-<br>
-<p>Réponse</p>
-<ul>
- <% @topic.answers.each do |answer| %>
- <li>
-   <p><%= answer.description %> by <%= answer.user.email %>
-    <%= link_to "Edit", edit_answer_path(answer) %>
-    <%= link_to answer_path(answer),
-  method: :delete,
-  data: { confirm: "Are you sure?" } do %>
-  Delete
-<% end %>
+<div class="head-show">
+  <h1><%= @topic.text %></h1>
+  <p>by <%= @topic.user.email %></p>
+</div>
 
-   </p>
- </li>
- <% end %>
-</ul>
+<div class="body-show">
+  <div class="body-show-content">
+    <p><%= @topic.description %></p>
+  </div>
+</div>
+
+<div class="title-commentaire">
+  <h2>Commentaires</h2>
+</div>
+<div class="container-commentaire">
+  <div class="commentaire-content">
+    <% @topic.answers.each do |answer| %>
+      <strong><%= answer.user.email %></strong>
+      <p><%= answer.description %>
+      <%= link_to "Edit", edit_answer_path(answer) %>
+      <%= link_to answer_path(answer),
+      method: :delete,
+      data: { confirm: "Are you sure?" } do %>
+      Delete
+      <% end %>
+      </p>
+    <% end %>
+  </div>
+</div>
 
 
-<br>
 
-<h2>add a commentaire</h2>
-<%= simple_form_for [@topic, @answer] do |f| %>
-<%= f.input :description %>
-<%= f.submit "add", class: "btn btn-primary" %>
-<% end %>
 
+<div class="title-commentaire">
+  <h2>add a commentaire</h2>
+</div>
+<div class="container-commentaire">
+  <div class="commentaire-content">
+    <%= simple_form_for [@topic, @answer] do |f| %>
+    <%= f.input :description %>
+    <%= f.submit "add", class: "submit" %>
+    <% end %>
+  </div>
+</div>
