@@ -6,7 +6,11 @@
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
-        <div class="form-inputs">
+        <div class="form-inputs" >
+          <%= f.input :address, required: true, autofocus: true, :input_html => {
+        :id => "flat_address" %>
+          <%= f.input :profil, required: true, autofocus: true, as: :radio_buttons, collection: ['Locataire', 'Propriétaire', 'Syndic', 'Gardien(ne)'] %>
+
           <%= f.input :email, required: true, autofocus: true %>
           <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
           <%= f.input :password_confirmation, required: true %>
