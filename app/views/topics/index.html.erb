@@ -1,17 +1,23 @@
-<h1>Topic index</h1>
-<% @topics.each do |topic| %>
+<div class="container-index">
+  <div class="title-index">
+    <h1>Topic index</h1>
+  </div>
+  <div class="container-topics">
+  <% @topics.each do |topic| %>
 
-<div class="texte-index">
-  <h2><%= link_to topic.text, topic_path(topic) %></h2>
-  <%= link_to "Edit", edit_topic_path(topic) %>
-   <%= link_to topic_path(topic),
-    method: :delete,
-    data: { confirm: "Are you sure?" } do %>
-    Delete
+    <div class="texte-index">
+      <h2><%= link_to topic.text, topic_path(topic) %></h2>
+      <%= link_to "Edit", edit_topic_path(topic), :class => "btn-edit-delete" %>
+       <%= link_to topic_path(topic), :class => "btn-edit-delete",
+        method: :delete,
+        data: { confirm: "Are you sure?" } do %>
+        Delete
+      <% end %>
+    </div>
+
   <% end %>
+  </div>
+  <div class="add-index">
+    <%= link_to "Add a new topic", new_topic_path, :class => "submit"  %>
+  </div>
 </div>
-
-
-<% end %>
-
-<%= link_to "add a new", new_topic_path %>
